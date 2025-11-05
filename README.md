@@ -13,19 +13,7 @@ A simple yet complete React Memory Game built using modern React concepts:
 - Components: GameBoard.jsx, ScoreBoard.jsx
 - Layout with 5x4 grid (20 cards)
 - Basic styling with CSS Grid
-
-🧩 **Project Structure Reference**
-  src/
- ┣ components/
- ┃ ┣ Card.jsx
- ┃ ┣ GameBoard.jsx
- ┃ ┗ ScoreBoard.jsx
- ┣ context/
- ┃ ┗ GameContext.js
- ┣ assets/
- ┃ ┗ cards/ (images)
- ┣ App.jsx
- ┗ App.css
+  
 
 
   **Task List**

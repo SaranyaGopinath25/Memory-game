@@ -1,11 +1,11 @@
 import ReactCardFlip from 'react-card-flip';
 
-const Card = ({ id, isFlipped, onClick, image }) => {
+const Card = ({ id, isFlipped, onClick, image, level }) => {
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
       {/* Front of the card (shown when not flipped) */}
       <div 
-        className="frontCard"
+        className={"frontCard-"+level}
         onClick={() => onClick(id)}
       />
 

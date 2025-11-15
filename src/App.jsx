@@ -1,18 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import GameBoard from './components/GameBoard.jsx';
-import ScoreBoard from './components/ScoreBoard.jsx';
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router';
+import Home from './pages/Home';
+import Game from './pages/Game';
 
 function App() {
 
   return (
-    <div className="container">
-      <h1>Hello Memory Game!!</h1>
-      <GameBoard />
-      <ScoreBoard />
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+            <Route path='/' element={<Home />}/>
+            <Route path='/game' element={<Game />}/>
+        </Routes>
+      </BrowserRouter>    
+    </>
   )
 }
 

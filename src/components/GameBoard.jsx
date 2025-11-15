@@ -14,6 +14,7 @@ import toucan from "../assets/cardImages/toucan.png";
 import unicorn from "../assets/cardImages/unicorn.png";
 
 const GameBoard = () => {
+  const level = new URLSearchParams(window.location.search).get("level");
   const cardImages = [
     butterfly,
     dove,
@@ -29,7 +30,23 @@ const GameBoard = () => {
 
   // Create pairs of cards
   const createBoard = () => {
-    const pairs = [...cardImages, ...cardImages];
+    //Need to create only required number of pairs based on level
+    // 3x3 = 6 pairs = 6 unique images
+    // 4x4 = 8 pairs = 8 unique images
+    // 5x4 = 10 pairs = 10 unique images
+    
+    console.log("Level Selected ::: " + level);
+    let selectedImages = [];
+    if(level === "easy") {
+      selectedImages = cardImages.slice(0,6);
+    }
+    else if(level === "medium"){
+      selectedImages = cardImages.slice(0,8);
+    }
+    else if(level === "hard"){
+      selectedImages = cardImages;
+    }
+    const pairs = [...selectedImages, ...selectedImages];
     return pairs
       .map((image, index) => ({
         id: index,
@@ -109,7 +126,7 @@ const GameBoard = () => {
   };
 
   return (
-    <div className="Cards">
+    <div className={"Cards-"+level}>
       {cards.map((card) => (
         <Card
           key={card.id}
@@ -117,6 +134,7 @@ const GameBoard = () => {
           isFlipped={card.isFlipped}
           image={card.image}
           onClick={handleCardClick}
+          level={level}
         />
       ))}
     </div>

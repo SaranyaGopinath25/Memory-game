@@ -1,66 +1,174 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body{
+body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: black;
+  background-color: rgb(19, 40, 75);
   color: white;
 }
 
-.container{
-  padding:20px;
+.container {
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
   text-align: center;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 
-h1{
-  margin-top:20px;
+.levels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+  gap: 50px;
+}
+
+.easy {
+  background-color: #1b4d5d;
+  width: 350px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid #3b8d54;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  gap: 10px;
+}
+
+.medium {
+  background-color: #4f4855;
+  width: 350px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid #cf8321;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  gap: 10px;
+}
+
+.hard {
+  background-color: #5d3a6d;
+  width: 350px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid #e34e55;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  gap: 10px;
+}
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+header {
   margin-bottom: 70px;
 }
 
-.Cards{
-  display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      padding: 20px;
-      max-width: 500px;
-      margin: 0 auto;
-
+footer {
+  padding: 70px;
 }
 
-  .frontCard{
-    background-color: #2c3e50;
-          width: 100px;
-          height: 100px;
-          border-radius: 8px;
-          cursor: pointer;
-  }
+.Cards-easy {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.Cards-medium {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.Cards-hard {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
 
-  .backCard{
-    width: 100px;
-    height: 100px;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: #ecf0f1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
- 
-  img{
-     width: 60%;
-    height: 60%;
-    object-fit: cover;
-    border-radius: 8px;
-  }
+.game-container {
+  width:100vw;
+  height:100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+.score-info {
+  width: 350px;
+  height: 100px;
+  background-color: #0e2544;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #202f4a;
+  border-radius: 10px;
+  padding: 20px;
+}
 
+.frontCard-easy {
+  background-color: #3b8d54;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.frontCard-medium {
+  background-color: #cf8321;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.frontCard-hard {
+  background-color: #e34e55;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
-  .score-info{
-    padding: 10px;
-    margin:10px;
-  }
+.backCard {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #ecf0f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+  border-radius: 8px;
+}

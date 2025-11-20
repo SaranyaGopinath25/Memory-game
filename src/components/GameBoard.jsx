@@ -121,6 +121,14 @@ const GameBoard = () => {
       setBestScore(_totalFlips);
     }
   };
+  const restartGame = () => {
+    setCards(createBoard());
+    setFlippedCards([]);
+    setFreezeBoard(false);
+    setMatchedCards([]);
+    setTotalFlips(0);
+    setGameOver(false);
+  };
 
   const handleCardClick = (cardId) => {
     console.log("Card Id ::: " + cardId);
@@ -161,6 +169,7 @@ const GameBoard = () => {
           totalMoves={totalFlips}
           bestScore={bestScore}
           isOpen={gameover}
+          onRestart={restartGame}
         />
       </div>
     </div>

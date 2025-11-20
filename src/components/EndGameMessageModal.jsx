@@ -9,8 +9,8 @@ import { Link } from "react-router";
 import Typography from "@mui/material/Typography";
 
 export default function AlertDialog(props) {
-  const { isOpen, totalMoves, bestScore } = props;
-
+  const { isOpen, totalMoves, bestScore, onRestart } = props;
+  <Link to="/">Home</Link>;
   return (
     <React.Fragment>
       <Dialog
@@ -18,7 +18,7 @@ export default function AlertDialog(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">Congratulations</DialogTitle>
+        <DialogTitle id="alert-dialog-title">Congratulations!!</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <Typography gutterBottom>TotalMoves: {totalMoves}</Typography>
@@ -26,7 +26,12 @@ export default function AlertDialog(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Link to="/">Return to homepage</Link>
+          <Button variant="outlined" component={Link} to="/">
+            Home
+          </Button>
+          <Button variant="outlined" onClick={onRestart}>
+            Restart
+          </Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>

@@ -55,11 +55,26 @@ const GameBoard = () => {
   const [totalFlips, setTotalFlips] = useState(0);
   const [bestScore, setBestScore] = useBestScore({ level });
   const [gameover, setGameOver] = useState(false);
+  const [seconds, setSeconds] = useState(0);
+  const [isActive, setIsActive] = useState(false); 
 
   // Update star rating based on total flips
   useEffect(() => {
     updateStarRating(totalFlips);
   }, [totalFlips]);
+// TIMER LOGIC
+useEffect(() => {
+  let timer;
+  if (isActive && !gameover) {
+    timer = setInterval(() => {
+      setSeconds((prev) => prev + 1);
+    }, 1000);
+  } else if (gameover || !isActive) {
+    clearInterval(timer);
+  }
+  return () => clearInterval(timer);
+}, [isActive, gameover]);
+
 
   // Create pairs of cards
   const createBoard = () => {
@@ -144,33 +159,42 @@ const GameBoard = () => {
     }
   };
   const restartGame = () => {
-    setCards(createBoard());
-    setFlippedCards([]);
-    setFreezeBoard(false);
-    setMatchedCards([]);
-    setTotalFlips(0);
-    setGameOver(false);
-  };
+  setCards(createBoard());
+  setFlippedCards([]);
+  setFreezeBoard(false);
+  setTotalFlips(0);
+  setGameOver(false);
+  setSeconds(0);
+  setIsActive(false); // reset to inactive
+};
 
   const handleCardClick = (cardId) => {
-    console.log("Card Id ::: " + cardId);
+  // Start timer on first flip
+  if (!isActive) setIsActive(true);
 
-    if (freezeBoard) return;
+  if (freezeBoard) return;
 
-    const newCards = cards.map((card) => {
-      if (card.id === cardId) {
-        return { ...card, isFlipped: true };
-      }
-      return card;
-    });
+  const newCards = cards.map((card) => {
+    if (card.id === cardId) {
+      return { ...card, isFlipped: true };
+    }
+    return card;
+  });
 
-    setCards(newCards);
-    setFlippedCards((prev) => [...prev, cardId]);
-  };
+  setCards(newCards);
+  setFlippedCards((prev) => [...prev, cardId]);
+};
+
 
   return (
     <div className="game-container">
-      <ScoreBoard totalMoves={totalFlips} bestScore={bestScore} />
+     <ScoreBoard
+  totalMoves={totalFlips}
+  bestScore={bestScore}
+  stars={stars}
+  seconds={seconds}
+/>
+
       <div className={"Cards-" + level}>
         {cards.map((card) => (
           <Card

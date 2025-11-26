@@ -192,7 +192,7 @@ useEffect(() => {
   totalMoves={totalFlips}
   bestScore={bestScore}
   stars={stars}
-/>
+
   seconds={seconds}
 />
 

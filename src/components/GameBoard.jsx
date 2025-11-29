@@ -221,7 +221,7 @@ useEffect(() => {
       </div>
       <button
         className="homeButton"
-        onClick={() => (window.location.href = "/")}
+        onClick={() => window.location.replace("/Memory-game")}
       >
         Home
       </button>

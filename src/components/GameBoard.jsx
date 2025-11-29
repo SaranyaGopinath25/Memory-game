@@ -1,5 +1,6 @@
 import React, { useState, useEffect, use } from "react";
 import Card from "./Card";
+import NotFound from "../pages/NotFound";
 
 // Import all card images
 import butterfly from "../assets/cardImages/butterfly.png";
@@ -20,6 +21,11 @@ import { useParams } from "react-router";
 const GameBoard = () => {
   // const level = new URLSearchParams(window.location.search).get("level");
   const { level } = useParams();
+  let validLevels = ["easy", "medium", "hard"];
+
+  if(!validLevels.includes(level)){
+      return <NotFound />;
+  }
   const cardImages = [
     butterfly,
     dove,

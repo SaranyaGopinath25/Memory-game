@@ -7,11 +7,11 @@ import NotFound from './pages/NotFound'
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename='/Memory-game'>
         <Routes>
             <Route path='/' element={<Home />}/>
-            <Route path='/game/:level' element={<GameBoard />}/>
-            <Route path='/*' element={<NotFound />}/>
+            <Route path='/:level' element={<GameBoard />}/>
+            <Route path='*' element={<NotFound />}/>
         </Routes>
       </BrowserRouter>    
     </>

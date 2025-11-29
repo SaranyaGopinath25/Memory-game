@@ -16,10 +16,12 @@ import unicorn from "../assets/cardImages/unicorn.png";
 import ScoreBoard from "./ScoreBoard";
 import useBestScore from "./useBestScore";
 import EndGameMessageModal from "./EndGameMessageModal";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 const GameBoard = () => {
   // const level = new URLSearchParams(window.location.search).get("level");
+
+  const navigate = useNavigate();
   const { level } = useParams();
   let validLevels = ["easy", "medium", "hard"];
 
@@ -221,7 +223,7 @@ useEffect(() => {
       </div>
       <button
         className="homeButton"
-        onClick={() => window.location.replace("/Memory-game")}
+        onClick={() => navigate('/Memory-game')}
       >
         Home
       </button>

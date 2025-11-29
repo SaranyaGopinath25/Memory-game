@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import Card from "./Card";
 
 // Import all card images
@@ -15,9 +15,11 @@ import unicorn from "../assets/cardImages/unicorn.png";
 import ScoreBoard from "./ScoreBoard";
 import useBestScore from "./useBestScore";
 import EndGameMessageModal from "./EndGameMessageModal";
+import { useParams } from "react-router";
 
 const GameBoard = () => {
-  const level = new URLSearchParams(window.location.search).get("level");
+  // const level = new URLSearchParams(window.location.search).get("level");
+  const { level } = useParams();
   const cardImages = [
     butterfly,
     dove,
